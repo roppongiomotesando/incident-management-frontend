@@ -105,13 +105,23 @@ current_state:
 
   - In Progress:
     - API integration setup
-    - Chart rendering implementation
-    - FloatingActionButton functionality
+    - Incidents CRUD implementation
+    - Timeline component reuse
 
-  - Next Steps:
-    - Set up API client
-    - Implement real chart rendering
-    - Add new artifact creation
-    - Implement proper error handling
+  - Next Focus:
+    - Connect with backend API:
+      * Set up API client
+      * Add proper error handling
+      * Implement loading states
+    - Create dedicated incidents page:
+      * List view using timeline component
+      * Create/Edit forms
+      * Delete confirmation
+      * Status updates
+    - Enhance timeline for incidents:
+      * Reuse existing card stack UI
+      * Add edit functionality
+      * Implement status indicators
+      * Add sorting/filtering
 
 # Follow these rules to ensure consistency, maintainability, and clarity as the project evolves.

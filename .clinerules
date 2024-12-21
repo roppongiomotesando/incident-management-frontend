@@ -1,0 +1,154 @@
+# .clinerules
+#
+# This file contains conventions, best practices, and guidelines for working on
+# the incident management frontend project.
+
+general:
+  - Always run `npm install` after pulling changes to ensure dependencies are up-to-date
+  - Keep the codebase minimal and clean, but leverage well-established libraries when beneficial:
+    - UI Components: `@mui/material`
+    - API Client: `@tanstack/react-query`
+    - Routing: `react-router-dom`
+    - HTTP Client: `axios`
+    - Form Handling: `react-hook-form`
+    - Validation: `zod`
+
+development:
+  - Start the development server with `npm run dev`
+  - Server will automatically reload on file changes
+  - Environment setup:
+    ```
+    VITE_API_URL=http://localhost:3000
+    VITE_NODE_ENV=development
+    ```
+
+coding_conventions:
+  - Use strict TypeScript rules; avoid `any` unless absolutely necessary
+  - Use functional components with hooks
+  - Implement proper error boundaries
+  - Use proper TypeScript types for API responses
+  - Follow React best practices:
+    - Proper component composition
+    - Custom hooks for reusable logic
+    - Memoization when needed
+  - Maintain a modular structure:
+    - `src/components/` for reusable UI components
+    - `src/pages/` for route components
+    - `src/hooks/` for custom hooks
+    - `src/api/` for API integration
+    - `src/types/` for TypeScript interfaces
+    - `src/utils/` for shared utilities
+    - `src/context/` for React context providers
+    - `src/theme/` for MUI theme customization
+
+error_handling:
+  - Implement proper error boundaries
+  - Use toast notifications for user feedback
+  - Handle API errors gracefully
+  - Show loading states during API calls
+  - Provide fallback UI for error states
+
+testing:
+  - Write unit tests for components
+  - Test custom hooks
+  - Use React Testing Library
+  - Mock API calls in tests
+  - Test error scenarios
+  - Aim for good test coverage
+
+performance:
+  - Use React.memo for expensive renders
+  - Implement proper data caching
+  - Use pagination for large lists
+  - Optimize bundle size
+  - Monitor performance metrics
+
+deployment:
+  - Store secrets in `.env`
+  - Build with `npm run build`
+  - Test production build locally
+  - Configure proper CORS settings
+
+documentation:
+  - Document complex components
+  - Include prop-types documentation
+  - Document custom hooks
+  - Keep README updated
+  - Include setup instructions
+
+components:
+  - Timeline:
+    - Collapsible card stack with 32px offset
+    - Tag-based filtering system
+    - Expandable/collapsible animation using framer-motion
+    - "Collapse All" functionality
+    - Dynamic height calculation based on stack state
+  
+  - ArtifactCard:
+    - Spring animations for smooth transitions
+    - Z-index management for proper stacking
+    - Support for different content types:
+      * Prometheus charts
+      * Grafana panels
+      * Text notes
+    - Metric display with circular indicator
+    - Tag display
+    - More actions menu
+  
+  - Tag:
+    - Toggle functionality
+    - Active/inactive states
+    - Used for filtering artifacts
+  
+  - FloatingActionButton:
+    - Add new artifacts (to be implemented)
+
+  - Data Sources:
+    - Configuration (to be implemented)
+    - Connection testing (to be implemented)
+    - Status monitoring (to be implemented)
+
+animations:
+  - Use framer-motion for smooth transitions
+  - Spring animations for natural feel
+  - Proper z-index management for stacking
+  - Height animations for expand/collapse
+  - Scale animations for hover states
+
+features:
+  - Authentication (future)
+  - Dark/light theme
+  - Responsive design
+  - Real-time updates (future)
+  - Export functionality
+  - Search and filtering
+
+git_workflow:
+  - Feature branches for new work
+  - Pull requests for review
+  - Clean commit messages
+  - Regular rebasing
+  - Branch naming:
+    - feature/[feature-name]
+    - fix/[fix-name]
+    - refactor/[refactor-name]
+
+current_focus:
+  - Fix TypeScript errors:
+    - Add proper module declarations
+    - Install missing dependencies
+    - Remove unused imports
+  - Set up development environment:
+    - Configure Vite
+    - Set up environment variables
+    - Add proper routing
+  - Preserve existing functionality:
+    - Maintain collapsible card system
+    - Keep animation smoothness
+    - Retain filtering capability
+  - Prepare for API integration:
+    - Set up API client
+    - Add proper error handling
+    - Implement loading states
+
+# Follow these rules to ensure consistency, maintainability, and clarity as the project evolves.

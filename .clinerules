@@ -3,15 +3,29 @@
 # This file contains conventions, best practices, and guidelines for working on
 # the incident management frontend project.
 
-general:
-  - Always run `npm install` after pulling changes to ensure dependencies are up-to-date
-  - Keep the codebase minimal and clean, but leverage well-established libraries when beneficial:
-    - UI Components: `@mui/material`
-    - API Client: `@tanstack/react-query`
-    - Routing: `react-router-dom`
-    - HTTP Client: `axios`
-    - Form Handling: `react-hook-form`
-    - Validation: `zod`
+repository:
+  - Private GitHub repository only
+  - No GitLab integration (git configured to prevent accidental pushes)
+  - Branch strategy:
+    - main: production-ready code
+    - feature/*: new features
+    - fix/*: bug fixes
+    - docs/*: documentation updates
+    - refactor/*: code improvements
+
+dependencies:
+  - Core:
+    - React + TypeScript
+    - Vite for build tooling
+    - Tailwind CSS for styling
+  - UI/Animation:
+    - framer-motion: animations
+    - lucide-react: icons
+  - Future additions:
+    - @mui/material: UI components
+    - @tanstack/react-query: API client
+    - react-hook-form: form handling
+    - zod: validation
 
 development:
   - Start the development server with `npm run dev`
@@ -21,6 +35,11 @@ development:
     VITE_API_URL=http://localhost:3000
     VITE_NODE_ENV=development
     ```
+  - VSCode settings configured for:
+    - TypeScript validation
+    - CSS/Tailwind support
+    - Format on save
+    - ESLint integration
 
 coding_conventions:
   - Use strict TypeScript rules; avoid `any` unless absolutely necessary
@@ -39,42 +58,7 @@ coding_conventions:
     - `src/types/` for TypeScript interfaces
     - `src/utils/` for shared utilities
     - `src/context/` for React context providers
-    - `src/theme/` for MUI theme customization
-
-error_handling:
-  - Implement proper error boundaries
-  - Use toast notifications for user feedback
-  - Handle API errors gracefully
-  - Show loading states during API calls
-  - Provide fallback UI for error states
-
-testing:
-  - Write unit tests for components
-  - Test custom hooks
-  - Use React Testing Library
-  - Mock API calls in tests
-  - Test error scenarios
-  - Aim for good test coverage
-
-performance:
-  - Use React.memo for expensive renders
-  - Implement proper data caching
-  - Use pagination for large lists
-  - Optimize bundle size
-  - Monitor performance metrics
-
-deployment:
-  - Store secrets in `.env`
-  - Build with `npm run build`
-  - Test production build locally
-  - Configure proper CORS settings
-
-documentation:
-  - Document complex components
-  - Include prop-types documentation
-  - Document custom hooks
-  - Keep README updated
-  - Include setup instructions
+    - `src/theme/` for theme customization
 
 components:
   - Timeline:
@@ -88,8 +72,8 @@ components:
     - Spring animations for smooth transitions
     - Z-index management for proper stacking
     - Support for different content types:
-      * Prometheus charts
-      * Grafana panels
+      * Prometheus charts (placeholder)
+      * Grafana panels (placeholder)
       * Text notes
     - Metric display with circular indicator
     - Tag display
@@ -103,11 +87,6 @@ components:
   - FloatingActionButton:
     - Add new artifacts (to be implemented)
 
-  - Data Sources:
-    - Configuration (to be implemented)
-    - Connection testing (to be implemented)
-    - Status monitoring (to be implemented)
-
 animations:
   - Use framer-motion for smooth transitions
   - Spring animations for natural feel
@@ -115,40 +94,34 @@ animations:
   - Height animations for expand/collapse
   - Scale animations for hover states
 
-features:
-  - Authentication (future)
-  - Dark/light theme
-  - Responsive design
-  - Real-time updates (future)
-  - Export functionality
-  - Search and filtering
+current_state:
+  - Implemented:
+    - Project structure and configuration
+    - Development environment setup
+    - Basic component architecture
+    - Collapsible timeline with animations
+    - Tag-based filtering
+    - Dark theme styling
 
-git_workflow:
-  - Feature branches for new work
-  - Pull requests for review
-  - Clean commit messages
-  - Regular rebasing
-  - Branch naming:
-    - feature/[feature-name]
-    - fix/[fix-name]
-    - refactor/[refactor-name]
+  - In Progress:
+    - API integration setup
+    - Incidents CRUD implementation
+    - Timeline component reuse
 
-current_focus:
-  - Fix TypeScript errors:
-    - Add proper module declarations
-    - Install missing dependencies
-    - Remove unused imports
-  - Set up development environment:
-    - Configure Vite
-    - Set up environment variables
-    - Add proper routing
-  - Preserve existing functionality:
-    - Maintain collapsible card system
-    - Keep animation smoothness
-    - Retain filtering capability
-  - Prepare for API integration:
-    - Set up API client
-    - Add proper error handling
-    - Implement loading states
+  - Next Focus:
+    - Connect with backend API:
+      * Set up API client
+      * Add proper error handling
+      * Implement loading states
+    - Create dedicated incidents page:
+      * List view using timeline component
+      * Create/Edit forms
+      * Delete confirmation
+      * Status updates
+    - Enhance timeline for incidents:
+      * Reuse existing card stack UI
+      * Add edit functionality
+      * Implement status indicators
+      * Add sorting/filtering
 
 # Follow these rules to ensure consistency, maintainability, and clarity as the project evolves.

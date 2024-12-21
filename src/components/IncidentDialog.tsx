@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { Incident, IncidentSeverity, IncidentStatus, CreateIncidentDto } from '../types/incident';
